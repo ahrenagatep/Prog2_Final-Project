@@ -8,4 +8,6 @@ Final project for Programming II class.
 * Polymorphism
 * Composition
 
+# Credits
+Ahren Agatep and Yousha Raiyan
 
