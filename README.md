@@ -2,10 +2,10 @@
 Final project for Programming II class.
 
 # Topics:
-GUI Basics & Event-Driven Programming
-Exception Handling
-File I/O
-Polymorphism
-Composition
+* GUI Basics & Event-Driven Programming
+* Exception Handling
+* File I/O
+* Polymorphism
+* Composition
 
 
