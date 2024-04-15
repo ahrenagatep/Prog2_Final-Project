@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-// comment
+// comments
 
 public class TaskManager extends JFrame {
     private JButton startButton;
