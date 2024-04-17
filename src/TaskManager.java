@@ -1,26 +1,37 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-// comments
 
 public class TaskManager extends JFrame {
     private JButton startButton;
     private JPanel panel;
 
-
     public static void main(String[] args) {
         TaskManager welcomePage = new TaskManager();
         welcomePage.setContentPane(welcomePage.panel);
         welcomePage.setTitle("Sign in page");
-        welcomePage.setBounds(600, 200, 200, 200);
+        welcomePage.setBounds(600, 200, 500, 400);
+        welcomePage.setResizable(false);
         welcomePage.setVisible(true);
         welcomePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         welcomePage.setUpStartButton();
     }
     public TaskManager(){
+        try {
+            ImageIcon backgroundImage = new ImageIcon("src/resources/background.jpg");
+
+            JLabel backgroundLabel = new JLabel(backgroundImage);
+            backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+
+            panel.add(backgroundLabel);
+        } catch (Exception e){
+            // let's pretend nothing even happened i guess
+        }   // man this code bugs out but it works.
+
         setUpStartButton();
     }
+
 
     public void setUpStartButton(){
         startButton.addActionListener(new ActionListener() {
