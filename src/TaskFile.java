@@ -1,3 +1,9 @@
+public class TaskFile {
+
+}
+class Task {
+ // change here
+}
 class Work {
  String Projects;
  String meeting;
@@ -10,11 +16,4 @@ class School {
 class Personal{
 String chores;
 String errands;
-}
-
-public class TaskFile {
-
-}
-class Task {
- // change here
 }
