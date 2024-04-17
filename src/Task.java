@@ -1,7 +1,7 @@
 
 class Work {
  String Projects;
- String meeting; // hi
+ String meeting; // h
 
 }
 
