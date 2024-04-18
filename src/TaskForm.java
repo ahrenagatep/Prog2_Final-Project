@@ -71,22 +71,17 @@ public class TaskForm extends JFrame{
                     int rowCount = tableModel.getRowCount();
                     int columnCount = tableModel.getColumnCount();
 
+                    // Had to learn StringBuilder for this.
                     StringBuilder content = new StringBuilder();
-
-                    // Iterate over each row
                     for (int i = 0; i < rowCount; i++) {
-                        // Iterate over each column
+                        // For each row, gets string value n then indents \t
                         for (int j = 0; j < columnCount; j++) {
-                            // Append cell value to the export string
                             content.append(tableModel.getValueAt(i, j));
-                            // Separate values by tab ('\t') or any other delimiter as needed
                             content.append("\t");
                         }
-                        // Add newline character ('\n') after each row
+                        // Adds \n after each row
                         content.append("\n");
                     }
-
-                    // Display the export string
                     System.out.println(content.toString());
 
                 } catch (Exception ex){
