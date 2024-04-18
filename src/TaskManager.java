@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,8 +11,8 @@ public class TaskManager extends JFrame {
         TaskManager welcomePage = new TaskManager();
         welcomePage.setContentPane(welcomePage.panel);
         welcomePage.setTitle("Sign in page");
-        welcomePage.setBounds(600, 200, 500, 400);
-        welcomePage.setResizable(false);
+        welcomePage.setBounds(600, 200, 625, 500);
+        welcomePage.setResizable(true);
         welcomePage.setVisible(true);
         welcomePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

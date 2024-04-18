@@ -6,15 +6,15 @@ class Task {
  int date;
 }
 class Work {
- String Projects;
+ String project;
  String meeting;
 }
 class School {
  String subject;
- String clubs;
+ String club;
 
 }
 class Personal{
-String chores;
-String errands;
+String chore;
+String errand;
 }
