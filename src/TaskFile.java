@@ -1,6 +1,3 @@
-public class TaskFile {
- // what
-}
 class Task {
     int time;
     int date;
