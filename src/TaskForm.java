@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileOutputStream;
@@ -12,7 +13,7 @@ public class TaskForm extends JFrame{
     private JTable taskTable;
     private JButton addTask;
     private JButton exportButton;
-    private DefaultTableModel tableModel;
+    private DefaultTableModel tableModel, schoolModel, workModel, personalModel;
 
     TaskForm(){
         this.setContentPane(this.taskPanel);
@@ -25,6 +26,7 @@ public class TaskForm extends JFrame{
         this.setAddTaskButton();
         this.setExportButton();
         this.defaultPopulateTable();
+        this.setTypeCB();
 
         try {
             ImageIcon backgroundImage = new ImageIcon("src/resources/background.jpg");
@@ -38,10 +40,18 @@ public class TaskForm extends JFrame{
         }   // man this code bugs out but it works.
     }
     private void defaultPopulateTable(){
-        String[] columnNames = {"Task","Type","Due"};
-        String[][] rowsOfData = {{"Prog. 2 Final","School","9-24-2024"},{"Take out trash","Personal","3-4-24"}};
+        String[] columnNames = {"Task","Due"};
+        String[][] rowsOfData = {{"Prog. 2 Final","9-24-2024"},{"Take out trash","3-4-24"}};
         tableModel = new DefaultTableModel(rowsOfData,columnNames);
         this.taskTable.setModel(tableModel);
+
+        String[][] schoolRows = {{"Prog. 2 final","9-24-2024"}};
+        String[][] workRows = {{"Finish Q2 report","6-17-2024"}};
+        String[][] personalRows = {{"Get groceries","4-20-2024"}};
+
+        schoolModel = new DefaultTableModel(schoolRows,columnNames);
+        workModel = new DefaultTableModel(workRows,columnNames);
+        personalModel = new DefaultTableModel(personalRows,columnNames);
     }
     private void setAddTaskButton(){
         addTask.addActionListener(new ActionListener() {
@@ -86,6 +96,29 @@ public class TaskForm extends JFrame{
 
                 } catch (Exception ex){
                     System.out.println(ex);
+                }
+            }
+        });
+    }
+    private void setTypeCB(){
+        typeCB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String type = typeCB.getSelectedItem().toString();
+                switch (type){
+                    case "Personal"->{
+                        taskTable.setModel(personalModel);
+                    }
+                    case "School"->{
+                        taskTable.setModel(schoolModel);
+                    }
+                    case "Work"->{
+                        taskTable.setModel(workModel);
+                    }
+                    default ->{
+                        JOptionPane.showMessageDialog(null,"Please select from\n"+
+                                "school/work/personal tasks.");
+                    }
                 }
             }
         });
