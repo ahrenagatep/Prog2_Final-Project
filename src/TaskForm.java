@@ -113,9 +113,18 @@ public class TaskForm extends JFrame{
                         content.append("\n");
                     }
                     String contentStr = content.toString();
-                    String path = JOptionPane.showInputDialog(TaskForm.this, "Enter file location:");
-                    String fileName = JOptionPane.showInputDialog("Enter file name:");
-
+                    String filePath = JOptionPane.showInputDialog(TaskForm.this, "Enter file location:\n" +
+                            "(ex. C:/Users/Ahren/Documents/)");
+                    String name = JOptionPane.showInputDialog("Enter file name (exclude .txt):");
+                    String fileName = name+".txt";
+                    try{
+                        filePath+=fileName;
+                        fileOutput(filePath,contentStr);
+                    } catch (NullPointerException ex){
+                        String homeDir = System.getProperty("user.home");
+                        filePath = homeDir+"/Documents/"+fileName;
+                        fileOutput(filePath,contentStr);
+                    }
                 } catch (Exception ex){
                     System.out.println(ex);
                 }
@@ -128,9 +137,11 @@ public class TaskForm extends JFrame{
             byte[] b = message.getBytes();
             os.write(b);
             os.close();
-            JOptionPane.showMessageDialog(null,"File successfully created!");
+            JOptionPane.showMessageDialog(null,"File successfully created!\n"
+                    +filePath);
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Failed to create file.");
+            JOptionPane.showMessageDialog(null,"Failed to create file,\n"
+            +"please put valid file path.");
         }
     }
     private void setTypeCB(){
