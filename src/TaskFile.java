@@ -1,4 +1,4 @@
-class Task {
+class Task { //op
     String title;
     String date;
     Task(String title, String date){
