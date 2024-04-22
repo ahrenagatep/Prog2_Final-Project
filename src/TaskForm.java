@@ -62,9 +62,27 @@ public class TaskForm extends JFrame{
                 try {
                     String type = typeCB.getSelectedItem().toString();
                     String taskfromTA = taskTA.getText();
-                    String date = JOptionPane.showInputDialog(TaskForm.this, "Enter due date (MM-dd-yyyy):");
-                    String[] newRow ={taskfromTA,type,date};
-                    tableModel.addRow(newRow);
+                    switch (type){
+                        case "Personal"->{
+                            String date = JOptionPane.showInputDialog(TaskForm.this, "Enter due date (MM-dd-yyyy):");
+                            String[] newRow ={taskfromTA,date};
+                            personalModel.addRow(newRow);
+                        }
+                        case "School"->{
+                            String date = JOptionPane.showInputDialog(TaskForm.this, "Enter due date (MM-dd-yyyy):");
+                            String[] newRow ={taskfromTA,date};
+                            schoolModel.addRow(newRow);
+                        }
+                        case "Work"->{
+                            String date = JOptionPane.showInputDialog(TaskForm.this, "Enter due date (MM-dd-yyyy):");
+                            String[] newRow ={taskfromTA,date};
+                            workModel.addRow(newRow);
+                        }
+                        default ->{
+                            JOptionPane.showMessageDialog(null,"Please select from\n"+
+                                    "school/work/personal tasks.");
+                        }
+                    }
                 } catch (Exception ex){
                     JOptionPane.showMessageDialog(null,"Failed to create task.\nPlease try again");
                 }
@@ -92,13 +110,26 @@ public class TaskForm extends JFrame{
                         // Adds \n after each row
                         content.append("\n");
                     }
-                    System.out.println(content.toString());
+                    String contentStr = content.toString();
+                    String path = JOptionPane.showInputDialog(TaskForm.this, "Enter file location:");
+                    String fileName = JOptionPane.showInputDialog("Enter file name:");
 
                 } catch (Exception ex){
                     System.out.println(ex);
                 }
             }
         });
+    }
+    private void fileOutput(String filePath, String message){
+        try {
+            OutputStream os = new FileOutputStream(filePath+".txt");
+            byte[] b = message.getBytes();
+            os.write(b);
+            os.close();
+            JOptionPane.showMessageDialog(null,"File successfully created!");
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Failed to create file.");
+        }
     }
     private void setTypeCB(){
         typeCB.addActionListener(new ActionListener() {
