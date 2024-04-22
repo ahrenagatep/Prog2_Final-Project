@@ -1,40 +1,35 @@
-import javax.swing.*;
-
 class Task {
-    int time;
-    int date;
-    Work work;
-    School school;
-    Personal personal;
-    Task(int time, int date, Work work, School school, Personal personal){
-        this.time = time;
+    String title;
+    String date;
+    Task(String title, String date){
+        this.title = title;
         this.date = date;
-        this.work = work;
-        this.school = school;
-        this.personal = personal;
     }
 }
-class Work {
-    String projects;
+class Work extends Task{
+    String project;
     String meeting;
-    Work(String projects, String meeting) {
-        this.projects = projects;
+    public Work(String title, String date, String project, String meeting) {
+        super(title, date);
+        this.project = project;
         this.meeting = meeting;
     }
 }
-class School {
+class School extends Task{
     String subject;
-    String clubs;
-    School(String subject, String clubs){
+    String club;
+    public School(String title, String date, String subject, String club){
+        super(title, date);
         this.subject = subject;
-        this.clubs = clubs;
+        this.club = club;
     }
 }
-class Personal{
-    String chores;
-    String errands;
-    Personal(String chores, String errands){
-        this.chores = chores;
-        this.errands = errands;
+class Personal extends Task{
+    String chore;
+    String errand;
+    public Personal(String title, String date, String chores, String errands){
+        super(title, date);
+        this.chore = chores;
+        this.errand = errands;
     }
 }
