@@ -27,9 +27,9 @@ class School extends Task{
 class Personal extends Task{
     String chore;
     String errand;
-    public Personal(String title, String date, String chores, String errands){
+    public Personal(String title, String date, String chore, String errand){
         super(title, date);
-        this.chore = chores;
-        this.errand = errands;
+        this.chore = chore;
+        this.errand = errand;
     }
 }

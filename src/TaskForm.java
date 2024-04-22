@@ -62,19 +62,21 @@ public class TaskForm extends JFrame{
                 try {
                     String type = typeCB.getSelectedItem().toString();
                     String taskfromTA = taskTA.getText();
+                    String date = JOptionPane.showInputDialog(TaskForm.this, "Enter due date (MM-dd-yyyy):");
+                    Task newTask;
                     switch (type){
                         case "Personal"->{
-                            String date = JOptionPane.showInputDialog(TaskForm.this, "Enter due date (MM-dd-yyyy):");
+                            newTask = new Personal(taskfromTA,date,null,null);
                             String[] newRow ={taskfromTA,date};
                             personalModel.addRow(newRow);
                         }
                         case "School"->{
-                            String date = JOptionPane.showInputDialog(TaskForm.this, "Enter due date (MM-dd-yyyy):");
+                            newTask = new School(taskfromTA,date,null,null);
                             String[] newRow ={taskfromTA,date};
                             schoolModel.addRow(newRow);
                         }
                         case "Work"->{
-                            String date = JOptionPane.showInputDialog(TaskForm.this, "Enter due date (MM-dd-yyyy):");
+                            newTask = new Work(taskfromTA,date,null,null);
                             String[] newRow ={taskfromTA,date};
                             workModel.addRow(newRow);
                         }
