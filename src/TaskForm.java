@@ -67,17 +67,17 @@ public class TaskForm extends JFrame{
                     switch (type){
                         case "Personal"->{
                             newTask = new Personal(taskfromTA,date,null,null);
-                            String[] newRow ={taskfromTA,date};
+                            String[] newRow = {taskfromTA,date};
                             personalModel.addRow(newRow);
                         }
                         case "School"->{
                             newTask = new School(taskfromTA,date,null,null);
-                            String[] newRow ={taskfromTA,date};
+                            String[] newRow = {taskfromTA,date};
                             schoolModel.addRow(newRow);
                         }
                         case "Work"->{
-                            newTask = new Work(taskfromTA,date,null,null);
-                            String[] newRow ={taskfromTA,date};
+                            newTask = new Work(taskfromTA,date,null,0);
+                            String[] newRow = {taskfromTA,date};
                             workModel.addRow(newRow);
                         }
                         default ->{

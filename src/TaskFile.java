@@ -12,18 +12,18 @@ class Task {
     }
 }
 class Work extends Task{
-    String project;
-    String meeting;
-    public Work(String title, String date, String project, String meeting) {
+    String department;
+    int quarter;
+    public Work(String title, String date, String department, int quarter) {
         super(title, date);
-        this.project = project;
-        this.meeting = meeting;
+        this.department = department;
+        this.quarter = quarter;
     }
     @Override // METHOD OVERRIDING!!
     public void displayTaskDetails() {
         super.displayTaskDetails(); // Call superclass method
-        System.out.println("Project: " + project);
-        System.out.println("Meeting: " + meeting);
+        System.out.println("Department: " + department);
+        System.out.println("Quarter: " + "Q"+quarter);
     }
 }
 class School extends Task{
