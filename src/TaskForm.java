@@ -1,19 +1,19 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 public class TaskForm extends JFrame{
-    private JComboBox typeCB;
+    private JComboBox typeCB, categoryCB;
     private JTextArea taskTA;
     private JPanel taskPanel;
     private JTable taskTable;
     private JButton addTask;
     private JButton exportButton;
     private DefaultTableModel tableModel, schoolModel, workModel, personalModel;
+    private DefaultComboBoxModel schoolCBM, workCBM, personalCBM;
 
     TaskForm(){
         this.setContentPane(this.taskPanel);
@@ -40,18 +40,24 @@ public class TaskForm extends JFrame{
         }   // man this code bugs out but it works.
     }
     private void defaultPopulateTable(){
-        String[] columnNames = {"Task","Due"};
-        String[][] rowsOfData = {{"Prog. 2 Final","9-24-2024"},{"Take out trash","3-4-24"}};
+        String[] columnNames = {"Task","Category","Due"};
+        String[][] rowsOfData = {{"task here","category here","date here"}};
         tableModel = new DefaultTableModel(rowsOfData,columnNames);
         this.taskTable.setModel(tableModel);
 
-        String[][] schoolRows = {{"Prog. 2 final","9-24-2024"}};
-        String[][] workRows = {{"Finish Q2 report","6-17-2024"}};
-        String[][] personalRows = {{"Get groceries","4-20-2024"}};
-
+        String[][] schoolRows = {{"Prog. 2 final","Programming II","9-24-2024"}};
+        String[][] workRows = {{"Finish Q2 report","Q2","6-17-2024"}};
+        String[][] personalRows = {{"Get milk and eggs","Groceries","4-20-2024"}};
         schoolModel = new DefaultTableModel(schoolRows,columnNames);
         workModel = new DefaultTableModel(workRows,columnNames);
         personalModel = new DefaultTableModel(personalRows,columnNames);
+
+        String[] schoolCBR = {"Subject","Club"};
+        String[] workCBR = {"Department","Quarter"};
+        String[] personalCBR = {"Chore","Errand"};
+        schoolCBM = new DefaultComboBoxModel(schoolCBR);
+        workCBM = new DefaultComboBoxModel(workCBR);
+        personalCBM = new DefaultComboBoxModel(personalCBR);
     }
     private void setAddTaskButton(){
         addTask.addActionListener(new ActionListener() {
@@ -152,12 +158,15 @@ public class TaskForm extends JFrame{
                 switch (type){
                     case "Personal"->{
                         taskTable.setModel(personalModel);
+                        categoryCB.setModel(personalCBM);
                     }
                     case "School"->{
                         taskTable.setModel(schoolModel);
+                        categoryCB.setModel(schoolCBM);
                     }
                     case "Work"->{
                         taskTable.setModel(workModel);
+                        categoryCB.setModel(workCBM);
                     }
                     default ->{
                         JOptionPane.showMessageDialog(null,"Please select from\n"+
