@@ -1,9 +1,14 @@
-class Task { //op
+class Task {
     String title;
     String date;
     Task(String title, String date){
         this.title = title;
         this.date = date;
+    }
+    // POLYMORPHISM YIPPEE!
+    public void displayTaskDetails() {
+        System.out.println("Title: " + title);
+        System.out.println("Date: " + date);
     }
 }
 class Work extends Task{
@@ -14,6 +19,12 @@ class Work extends Task{
         this.project = project;
         this.meeting = meeting;
     }
+    @Override // METHOD OVERRIDING!!
+    public void displayTaskDetails() {
+        super.displayTaskDetails(); // Call superclass method
+        System.out.println("Project: " + project);
+        System.out.println("Meeting: " + meeting);
+    }
 }
 class School extends Task{
     String subject;
@@ -23,6 +34,12 @@ class School extends Task{
         this.subject = subject;
         this.club = club;
     }
+    @Override
+    public void displayTaskDetails() {
+        super.displayTaskDetails(); // Call superclass method
+        System.out.println("Subject: " + subject);
+        System.out.println("Club: " + club);
+    }
 }
 class Personal extends Task{
     String chore;
@@ -31,5 +48,11 @@ class Personal extends Task{
         super(title, date);
         this.chore = chore;
         this.errand = errand;
+    }
+    @Override
+    public void displayTaskDetails() {
+        super.displayTaskDetails(); // Call superclass method
+        System.out.println("Chore: " + chore);
+        System.out.println("Errand: " + errand);
     }
 }
