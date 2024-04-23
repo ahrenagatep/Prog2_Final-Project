@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 class Task {
     String title;
     String date;
@@ -13,8 +15,8 @@ class Task {
 }
 class Work extends Task{
     String department;
-    int quarter;
-    public Work(String title, String date, String department, int quarter) {
+    String quarter;
+    public Work(String title, String date, String department, String quarter) {
         super(title, date);
         this.department = department;
         this.quarter = quarter;
@@ -24,6 +26,16 @@ class Work extends Task{
         super.displayTaskDetails(); // Call superclass method
         System.out.println("Department: " + department);
         System.out.println("Quarter: " + "Q"+quarter);
+    }
+    public String askDepartment(){
+        String department = JOptionPane.showInputDialog(null, "Enter department (ex. HR):");
+        this.department = department;
+        return department;
+    }
+    public String askQuarter(){
+        String quarter = JOptionPane.showInputDialog(null, "Enter quarter (ex. Q4):");
+        this.quarter = quarter;
+        return quarter;
     }
 }
 class School extends Task{
@@ -40,6 +52,16 @@ class School extends Task{
         System.out.println("Subject: " + subject);
         System.out.println("Club: " + club);
     }
+    public String askSubject(){
+        String subject = JOptionPane.showInputDialog(null, "Enter subject (ex. Calculus):");
+        this.subject = subject;
+        return subject;
+    }
+    public String askClub(){
+        String club = JOptionPane.showInputDialog(null, "Enter club name (ex. S.A.S.E.):");
+        this.club = club;
+        return club;
+    }
 }
 class Personal extends Task{
     String chore;
@@ -54,5 +76,15 @@ class Personal extends Task{
         super.displayTaskDetails(); // Call superclass method
         System.out.println("Chore: " + chore);
         System.out.println("Errand: " + errand);
+    }
+    public String askChore(){
+        String chore = JOptionPane.showInputDialog(null, "Enter chore (ex. Wash dishes):");
+        this.chore = chore;
+        return chore;
+    }
+    public String askErrand(){
+        String errand = JOptionPane.showInputDialog(null, "Enter errand (ex. Get milk):");
+        this.errand = errand;
+        return errand;
     }
 }

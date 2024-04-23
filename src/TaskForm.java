@@ -68,22 +68,37 @@ public class TaskForm extends JFrame{
                 try {
                     String type = typeCB.getSelectedItem().toString();
                     String taskfromTA = taskTA.getText();
-                    String date = JOptionPane.showInputDialog(TaskForm.this, "Enter due date (MM-dd-yyyy):");
-                    Task newTask;
+                    String date = JOptionPane.showInputDialog(TaskForm.this, "Enter due date (mm-dd-yyyy):");
+                    String category = categoryCB.getSelectedItem().toString();
                     switch (type){
                         case "Personal"->{
-                            newTask = new Personal(taskfromTA,date,null,null);
-                            String[] newRow = {taskfromTA,date};
+                            Personal newTask = new Personal(taskfromTA,date,null,null);
+                            switch (category){
+                                case "Chore"->{category = newTask.askChore();}
+                                case "Errand"->{category = newTask.askErrand();}
+                            }
+                            newTask.displayTaskDetails();
+                            String[] newRow = {taskfromTA,category,date};
                             personalModel.addRow(newRow);
                         }
                         case "School"->{
-                            newTask = new School(taskfromTA,date,null,null);
-                            String[] newRow = {taskfromTA,date};
+                            School newTask = new School(taskfromTA,date,null,null);
+                            switch (category){
+                                case "Subject"->{category = newTask.askSubject();}
+                                case "Club"->{category = newTask.askClub();}
+                            }
+                            String[] newRow = {taskfromTA,category,date};
+                            newTask.displayTaskDetails();
                             schoolModel.addRow(newRow);
                         }
                         case "Work"->{
-                            newTask = new Work(taskfromTA,date,null,0);
-                            String[] newRow = {taskfromTA,date};
+                            Work newTask = new Work(taskfromTA,date,null,null);
+                            switch (category){
+                                case "Department"->{category = newTask.askDepartment();}
+                                case "Quarter"->{category = newTask.askQuarter();}
+                            }
+                            String[] newRow = {taskfromTA,category,date};
+                            newTask.displayTaskDetails();
                             workModel.addRow(newRow);
                         }
                         default ->{

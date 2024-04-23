@@ -33,7 +33,7 @@
         <properties>
           <font name="Microsoft JhengHei UI" size="18" style="3"/>
           <foreground color="-1"/>
-          <text value="Create a Task:"/>
+          <text value="Create a Task "/>
         </properties>
       </component>
       <component id="7172a" class="javax.swing.JLabel">
@@ -149,7 +149,7 @@
           <enabled value="true"/>
           <font name="Microsoft JhengHei UI" size="18" style="3"/>
           <foreground color="-1"/>
-          <text value="Category:"/>
+          <text value="Category: "/>
         </properties>
       </component>
     </children>
