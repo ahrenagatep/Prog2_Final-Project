@@ -41,7 +41,7 @@ public class TaskForm extends JFrame{
     }
     private void defaultPopulateTable(){
         String[] columnNames = {"Task","Category","Due"};
-        String[][] rowsOfData = {{"task here","category here","date here"}};
+        String[][] rowsOfData = {{"","",""}};
         tableModel = new DefaultTableModel(rowsOfData,columnNames);
         this.taskTable.setModel(tableModel);
 
