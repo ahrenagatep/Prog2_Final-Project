@@ -63,6 +63,7 @@
             <properties>
               <background color="-13947600"/>
               <enabled value="true"/>
+              <fillsViewportHeight value="true"/>
               <font name="Microsoft JhengHei" style="1"/>
               <foreground color="-1"/>
               <gridColor color="-9670026"/>
