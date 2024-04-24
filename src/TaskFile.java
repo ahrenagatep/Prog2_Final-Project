@@ -1,5 +1,5 @@
 import javax.swing.*;
-class Task { // INHERITING! :D
+class Task { // INHERITANCE!!
     String title;
     String date;
     Task(String title, String date){
@@ -20,7 +20,7 @@ class Work extends Task{
         this.department = department;
         this.quarter = quarter;
     }
-    @Override // METHOD OVERRIDING!!
+    @Override // METHOD OVERRIDING!! POLYMORPHISM!!
     public void displayTaskDetails() {
         super.displayTaskDetails(); // Call superclass method
         System.out.println("Department: " + department);
