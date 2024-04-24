@@ -6,7 +6,7 @@ class Task { // INHERITANCE!!
         this.title = title;
         this.date = date;
     }
-    // POLYMORPHISM YIPPEE!
+    // MAIN METHOD!
     public void displayTaskDetails() {
         System.out.println("Title: " + title);
         System.out.println("Date: " + date);
