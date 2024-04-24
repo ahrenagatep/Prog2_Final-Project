@@ -1,6 +1,5 @@
 import javax.swing.*;
-
-class Task {
+class Task { // INHERITING! :D
     String title;
     String date;
     Task(String title, String date){
