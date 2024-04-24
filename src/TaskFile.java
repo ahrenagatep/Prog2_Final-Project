@@ -25,7 +25,7 @@ class Work extends Task{
     public void displayTaskDetails() {
         super.displayTaskDetails(); // Call superclass method
         System.out.println("Department: " + department);
-        System.out.println("Quarter: " + "Q"+quarter);
+        System.out.println("Quarter: " + quarter);
     }
     public String askDepartment(){
         String department = JOptionPane.showInputDialog(null, "Enter department (ex. HR):");

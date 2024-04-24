@@ -12,7 +12,7 @@ public class TaskForm extends JFrame{
     private JTable taskTable;
     private JButton addTask;
     private JButton exportButton;
-    private DefaultTableModel tableModel, schoolModel, workModel, personalModel;
+    private DefaultTableModel tableModel, schoolModel, workModel, personalModel, exportModel;
     private DefaultComboBoxModel schoolCBM, workCBM, personalCBM;
 
     TaskForm(){
@@ -119,15 +119,15 @@ public class TaskForm extends JFrame{
                 /* gets information from taskTable to export into
                  user's home directory, pop up saying successful */
                 try{
-                    int rowCount = tableModel.getRowCount();
-                    int columnCount = tableModel.getColumnCount();
+                    int rowCount = exportModel.getRowCount();
+                    int columnCount = exportModel.getColumnCount();
 
                     // Had to learn StringBuilder for this.
                     StringBuilder content = new StringBuilder();
                     for (int i = 0; i < rowCount; i++) {
                         // For each row, gets string value n then indents \t
                         for (int j = 0; j < columnCount; j++) {
-                            content.append(tableModel.getValueAt(i, j));
+                            content.append(exportModel.getValueAt(i, j));
                             content.append("\t");
                         }
                         // Adds \n after each row
@@ -174,14 +174,17 @@ public class TaskForm extends JFrame{
                     case "Personal"->{
                         taskTable.setModel(personalModel);
                         categoryCB.setModel(personalCBM);
+                        exportModel = personalModel;
                     }
                     case "School"->{
                         taskTable.setModel(schoolModel);
                         categoryCB.setModel(schoolCBM);
+                        exportModel = schoolModel;
                     }
                     case "Work"->{
                         taskTable.setModel(workModel);
                         categoryCB.setModel(workCBM);
+                        exportModel = workModel;
                     }
                     default ->{
                         JOptionPane.showMessageDialog(null,"Please select from\n"+
