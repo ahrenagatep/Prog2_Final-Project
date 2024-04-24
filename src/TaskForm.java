@@ -135,7 +135,7 @@ public class TaskForm extends JFrame{
                     }
                     String contentStr = content.toString();
                     String filePath = JOptionPane.showInputDialog(TaskForm.this, "Enter file location:\n" +
-                            "(ex. C:/Users/Ahren/Documents/)");
+                            "(ex. /Users/Ahren/Documents/)");
                     String name = JOptionPane.showInputDialog("Enter file name (exclude .txt):");
                     String fileName = name+".txt";
                     try{
