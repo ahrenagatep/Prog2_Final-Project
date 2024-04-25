@@ -6,7 +6,7 @@ class Task { // INHERITANCE!!
         this.title = title;
         this.date = date;
     }
-    // MAIN METHOD!
+    // SUPER METHOD!!
     public void displayTaskDetails() {
         System.out.println("Title: " + title);
         System.out.println("Date: " + date);

@@ -154,7 +154,7 @@ public class TaskManager extends JFrame{
     }
     private void fileOutput(String filePath, String message){
         try {
-            OutputStream os = new FileOutputStream(filePath+".txt");
+            OutputStream os = new FileOutputStream(filePath);
             byte[] b = message.getBytes();
             os.write(b);
             os.close();
