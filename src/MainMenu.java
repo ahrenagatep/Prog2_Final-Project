@@ -31,8 +31,6 @@ public class MainMenu extends JFrame {
 
         setUpStartButton();
     }
-
-
     public void setUpStartButton(){
         startButton.addActionListener(new ActionListener() {
             @Override
