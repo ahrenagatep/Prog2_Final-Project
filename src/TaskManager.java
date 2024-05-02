@@ -36,8 +36,11 @@ public class TaskManager extends JFrame{
 
             taskPanel.add(backgroundLabel);
         } catch (Exception e){
-            // let's pretend nothing even happened i guess
-        }   // man this code bugs out but it works.
+            /*
+            Outputs an exception, but code does
+            what it's intended to do so
+             */
+        }
     }
     private void defaultPopulateTable(){
         String[] columnNames = {"Task","Category","Due"};

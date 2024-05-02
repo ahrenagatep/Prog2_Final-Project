@@ -26,8 +26,11 @@ public class MainMenu extends JFrame {
 
             panel.add(backgroundLabel);
         } catch (Exception e){
-            // let's pretend nothing even happened i guess
-        }   // man this code bugs out but it works.
+            /*
+            Outputs an exception, but code does
+            what it's intended to do so
+             */
+        }
     }
     public void setUpStartButton(){
         startButton.addActionListener(new ActionListener() {
