@@ -28,8 +28,6 @@ public class MainMenu extends JFrame {
         } catch (Exception e){
             // let's pretend nothing even happened i guess
         }   // man this code bugs out but it works.
-
-        setUpStartButton();
     }
     public void setUpStartButton(){
         startButton.addActionListener(new ActionListener() {
