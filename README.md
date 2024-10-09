@@ -9,5 +9,5 @@ Final project for Programming II class.
 * Composition
 
 # Credits
-Ahren Agatep and Yousha Raiyan
+Ahren Agatep
 
